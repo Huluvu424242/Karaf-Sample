@@ -28,8 +28,10 @@
     <feature name='${project.artifactId}' description='${project.name}' version='${project.version}'>
         <details>${project.description}</details>
         <feature version='${project.version}'>ube-jpa-feature</feature>
-        <bundle>mvn:${project.groupId}/ube-persistence/${project.version}</bundle>
         <bundle>mvn:${project.groupId}/ube-domain/${project.version}</bundle>
+        <bundle>mvn:${project.groupId}/ube-infrastructure/${project.version}</bundle>
+        <bundle>mvn:${project.groupId}/ube-application/${project.version}</bundle>
+        <bundle>mvn:${project.groupId}/ube-ui/${project.version}</bundle>
     </feature>
 
 </features>

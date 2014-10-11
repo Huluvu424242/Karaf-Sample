@@ -14,7 +14,9 @@
 
 
 	<modules>
-		<module>ube-persistence</module>
+		<module>ube-ui</module>
+		<!-- <module>ube-application</module> -->
+		<module>ube-infrastructure</module>
 		<module>ube-domain</module>
 		<module>ube-feature</module>
 	</modules>

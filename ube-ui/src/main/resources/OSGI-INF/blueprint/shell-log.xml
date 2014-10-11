@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	default-activation="lazy">
+
+	<reference id="entityBroker"
+		interface="de.inovex.javamagazin.jpa.InventoryDAO" />
+
+	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
+        <command>
+			<action class="de.inovex.javamagazin.ui.command.CreateCategory">
+				<property name="broker" ref="entityBroker" />
+			</action>
+		</command>
+		
+        <command>
+			<action class="de.inovex.javamagazin.ui.command.DeleteCategory">
+				<property name="broker" ref="entityBroker" />
+			</action>
+		</command>
+		
+        <command>
+			<action class="de.inovex.javamagazin.ui.command.ListCategory">
+				<property name="broker" ref="entityBroker" />
+			</action>
+		</command>
+		
+        <command>
+			<action class="de.inovex.javamagazin.ui.command.ListItem">
+				<property name="broker" ref="entityBroker" />
+			</action>
+		</command>
+		
+        <command>
+			<action class="de.inovex.javamagazin.ui.command.CreateItem">
+				<property name="broker" ref="entityBroker" />
+			</action>
+		</command>
+	</command-bundle>
+</blueprint>
