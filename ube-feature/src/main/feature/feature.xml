@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
 
-	<feature name='Karaf-JPA-OpenJPA' version='${project.version}'>
+	<feature name='ube-jpa-feature' description='JPA Support for UBE Feature' version='${project.version}'>
 	    <!-- Container dependencies -->
         <feature>transaction</feature>
         <feature>jpa</feature>
@@ -27,9 +27,9 @@
 
     <feature name='${project.artifactId}' description='${project.name}' version='${project.version}'>
         <details>${project.description}</details>
-        <feature version='${project.version}'>Karaf-JPA-OpenJPA</feature>
-        <bundle>mvn:${project.groupId}/Karaf-JPA/${project.version}</bundle>
-        <bundle>mvn:${project.groupId}/Karaf-JPA-Command/${project.version}</bundle>
+        <feature version='${project.version}'>ube-jpa-feature</feature>
+        <bundle>mvn:${project.groupId}/ube-persistence/${project.version}</bundle>
+        <bundle>mvn:${project.groupId}/ube-domain/${project.version}</bundle>
     </feature>
 
 </features>

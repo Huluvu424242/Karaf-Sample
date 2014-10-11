@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.inovex.javamagazin</groupId>
-	<artifactId>karaf-parent</artifactId>
+
+
+	<groupId>com.github.funthomas424242.karaf</groupId>
+	<artifactId>ube-parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+
 	<packaging>pom</packaging>
-	<name>Karaf-Parent</name>
+	<name>UBE-Parent</name>
 	<description>Sample project for running in Karaf</description>
+
+
 	<modules>
-		<module>Karaf-JPA</module>
-    <module>Karaf-JPA-Command</module>
-    <module>Karaf-JPA-Feature</module>
-  </modules>
-	
-		<properties>
+		<module>ube-persistence</module>
+		<module>ube-domain</module>
+		<module>ube-feature</module>
+	</modules>
+
+	<properties>
 		<dependency.slf4j.version>1.6.1</dependency.slf4j.version>
 		<dependency.log4j.version>1.2.14</dependency.log4j.version>
 		<dependency.commons-io.version>2.3</dependency.commons-io.version>
@@ -152,7 +158,7 @@
 				<version>${dependency.osgi.version}</version>
 				<scope>test</scope>
 			</dependency>
-			
+
 			<!-- OpenJPA dependency -->
 			<dependency>
 				<groupId>org.apache.openjpa</groupId>

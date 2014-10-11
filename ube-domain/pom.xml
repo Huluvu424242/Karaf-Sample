@@ -21,14 +21,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>karaf-parent</artifactId>
-        <groupId>de.inovex.javamagazin</groupId>
+        <artifactId>ube-parent</artifactId>
+        <groupId>com.github.funthomas424242.karaf</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>karaf-domain</artifactId>
+    <artifactId>ube-domain</artifactId>
     <packaging>bundle</packaging>
-    <name>Karaf-Domain</name>
+    <name>UBE-Domain</name>
 
     <description>Provides the OSGi javamagazin commands</description>
 
@@ -70,7 +70,7 @@
         
         <dependency>
         	<groupId>${project.groupId}</groupId>
-        	<artifactId>Karaf-JPA</artifactId>
+        	<artifactId>ube-persistence</artifactId>
         	<version>${project.version}</version>
             <scope>provided</scope>
         </dependency>

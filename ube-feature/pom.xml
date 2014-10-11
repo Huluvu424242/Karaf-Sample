@@ -21,18 +21,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>karaf-parent</artifactId>
-        <groupId>de.inovex.javamagazin</groupId>
+        <artifactId>ube-parent</artifactId>
+        <groupId>com.github.funthomas424242.karaf</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>de.inovex.javamagazin</groupId>
-    <artifactId>karaf-feature</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    
+    <artifactId>ube-feature</artifactId>
     <packaging>feature</packaging>
 
-    <name>Karaf-Feature</name>
-    <description>Karaf-Feature details</description>
+    <name>UBE-Feature</name>
+    <description>UBE-Feature details</description>
 
     <build>
         <pluginManagement>
