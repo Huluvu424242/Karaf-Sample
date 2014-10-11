@@ -9,7 +9,7 @@ import org.apache.karaf.shell.console.OsgiCommandSupport;
 import de.inovex.javamagazin.jpa.InventoryCategory;
 import de.inovex.javamagazin.jpa.broker.InventoryEntityBroker;
 
-@Command(scope = "javamagazin", name = "CreateItem", description = "CRUD commands for the JavaMagazin samples")
+@Command(scope = "ube", name = "CreateItem", description = "CRUD commands for the JavaMagazin samples")
 public class CreateItem extends OsgiCommandSupport {
 
     @Option(name = "-d", aliases = { "--description" }, description = "A description to the item", required = false, multiValued = false)

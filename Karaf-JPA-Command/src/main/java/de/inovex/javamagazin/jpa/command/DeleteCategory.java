@@ -7,7 +7,7 @@ import org.apache.karaf.shell.console.OsgiCommandSupport;
 
 import de.inovex.javamagazin.jpa.broker.InventoryEntityBroker;
 
-@Command(scope = "javamagazin", name = "DeleteCategory", description = "CRUD commands for the JavaMagazin samples")
+@Command(scope = "ube", name = "DeleteCategory", description = "CRUD commands for the JavaMagazin samples")
 public class DeleteCategory extends OsgiCommandSupport {
 
 	@Argument(name = "name", description = "Name of Category", required = false, multiValued = false)

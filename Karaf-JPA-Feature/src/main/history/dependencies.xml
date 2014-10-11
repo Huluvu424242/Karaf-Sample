@@ -4,6 +4,7 @@
         <feature>Karaf-JPA-OpenJPA</feature>
         <feature>jndi</feature>
         <feature>jpa</feature>
+        <feature>openjpa</feature>
         <feature>transaction</feature>
         <bundle>mvn:de.inovex.javamagazin/Karaf-JPA-Command/1.0.0-SNAPSHOT</bundle>
         <bundle>mvn:de.inovex.javamagazin/Karaf-JPA/1.0.0-SNAPSHOT</bundle>

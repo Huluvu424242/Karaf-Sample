@@ -8,7 +8,7 @@ import org.apache.karaf.shell.console.OsgiCommandSupport;
 
 import de.inovex.javamagazin.jpa.broker.InventoryEntityBroker;
 
-@Command(scope = "javamagazin", name = "CreateCategory", description = "CRUD commands for the JavaMagazin samples")
+@Command(scope = "ube", name = "CreateCategory", description = "CRUD commands for the JavaMagazin samples")
 public class CreateCategory extends OsgiCommandSupport {
 
     @Option(name = "-d", aliases = { "--description" }, description = "A description to the category", required = false, multiValued = false)

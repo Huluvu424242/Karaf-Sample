@@ -12,7 +12,7 @@ import org.apache.karaf.shell.table.ShellTable;
 import de.inovex.javamagazin.jpa.InventoryItem;
 import de.inovex.javamagazin.jpa.broker.InventoryEntityBroker;
 
-@Command(scope = "javamagazin", name = "ListItem", description = "CRUD commands for the JavaMagazin samples")
+@Command(scope = "ube", name = "ListItem", description = "CRUD commands for the JavaMagazin samples")
 public class ListItem extends OsgiCommandSupport {
 
 	@Option(name = "--no-format", description = "Disable table rendered output", required = false, multiValued = false)
