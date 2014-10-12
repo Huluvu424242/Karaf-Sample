@@ -85,9 +85,7 @@
 				<configuration>
 					<instructions>
 						<Export-Package>
-							!de.inovex.javamagazin.jpa.broker.impl,
-							de.inovex.javamagazin.jpa,
-							de.inovex.javamagazin.jpa.broker
+							!de.inovex.javamagazin.jpa.impl
 						</Export-Package>
 						<Import-Package>*</Import-Package>
 					</instructions>

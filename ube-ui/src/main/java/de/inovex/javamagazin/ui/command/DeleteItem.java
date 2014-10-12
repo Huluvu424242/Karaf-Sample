@@ -5,7 +5,7 @@ import org.apache.karaf.shell.commands.Command;
 import org.apache.karaf.shell.commands.Option;
 import org.apache.karaf.shell.console.OsgiCommandSupport;
 
-import de.inovex.javamagazin.jpa.InventoryDAO;
+import de.inovex.javamagazin.jpa.InventoryRepository;
 
 @Command(scope = "ube", name = "DeleteItem", description = "CRUD commands for the JavaMagazin samples")
 public class DeleteItem extends OsgiCommandSupport {
@@ -16,9 +16,9 @@ public class DeleteItem extends OsgiCommandSupport {
 	@Option(name = "-id", description = "ID of the Item", required = false, multiValued = false)
 	private String id; 
 
-	private InventoryDAO broker;
+	private InventoryRepository broker;
 
-	public void setBroker(InventoryDAO broker) {
+	public void setBroker(InventoryRepository broker) {
 		this.broker = broker;
 	}
 

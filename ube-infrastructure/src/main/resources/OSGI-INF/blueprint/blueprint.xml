@@ -10,12 +10,12 @@
            http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
 
 	<bean id="inventoryEntityBrokerImpl"
-		class="de.inovex.javamagazin.jpa.broker.impl.InventoryDAOImpl">
+		class="de.inovex.javamagazin.jpa.impl.InventoryRepositoryImpl">
 		<jpa:context property="em" unitname="inventory" />
 		<tx:transaction method="*" value="Required" />
 	</bean>
 
 	<service id="inventoryEntityBroker" ref="inventoryEntityBrokerImpl"
-		interface="de.inovex.javamagazin.jpa.InventoryDAO" />
+		interface="de.inovex.javamagazin.jpa.InventoryRepository" />
 
 </blueprint>

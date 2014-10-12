@@ -71,7 +71,9 @@
 				<configuration>
 					<instructions>
 						<Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
-						<Export-Package>de.inovex.javamagazin.domain*</Export-Package>
+						<Export-Package>de.inovex.javamagazin.domain*,
+							de.inovex.javamagazin.jpa
+						</Export-Package>
 						<Import-Package>*</Import-Package>
 					</instructions>
 				</configuration>

@@ -6,7 +6,7 @@ import org.apache.karaf.shell.commands.Command;
 import org.apache.karaf.shell.commands.Option;
 import org.apache.karaf.shell.console.OsgiCommandSupport;
 
-import de.inovex.javamagazin.jpa.InventoryDAO;
+import de.inovex.javamagazin.jpa.InventoryRepository;
 
 @Command(scope = "ube", name = "CreateCategory", description = "CRUD commands for the JavaMagazin samples")
 public class CreateCategory extends OsgiCommandSupport {
@@ -17,9 +17,9 @@ public class CreateCategory extends OsgiCommandSupport {
     @Argument(name = "name", description = "Name of Category", required = true, multiValued = false)
     private String name;
 
-	private InventoryDAO service;
+	private InventoryRepository service;
 	
-	public void setBroker(InventoryDAO broker) {
+	public void setBroker(InventoryRepository broker) {
 		this.service = broker;
 	}
     

@@ -5,7 +5,7 @@ import java.util.List;
 import de.inovex.javamagazin.domain.InventoryCategory;
 import de.inovex.javamagazin.domain.InventoryItem;
 
-public interface InventoryDAO {
+public interface InventoryRepository {
 
 	// Item methods
 	List<InventoryItem> getAllItems();

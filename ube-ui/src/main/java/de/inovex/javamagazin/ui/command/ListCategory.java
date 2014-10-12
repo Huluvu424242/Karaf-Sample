@@ -10,7 +10,7 @@ import org.apache.karaf.shell.table.Col;
 import org.apache.karaf.shell.table.ShellTable;
 
 import de.inovex.javamagazin.domain.InventoryCategory;
-import de.inovex.javamagazin.jpa.InventoryDAO;
+import de.inovex.javamagazin.jpa.InventoryRepository;
 
 @Command(scope = "ube", name = "ListCategory", description = "CRUD commands for the JavaMagazin samples")
 public class ListCategory extends OsgiCommandSupport {
@@ -18,9 +18,9 @@ public class ListCategory extends OsgiCommandSupport {
     @Option(name = "--no-format", description = "Disable table rendered output", required = false, multiValued = false)
     boolean noFormat;
     
-	private InventoryDAO broker;
+	private InventoryRepository broker;
 	
-	public void setBroker(InventoryDAO broker) {
+	public void setBroker(InventoryRepository broker) {
 		this.broker = broker;
 	}
     

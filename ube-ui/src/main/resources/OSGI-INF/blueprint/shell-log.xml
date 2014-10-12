@@ -3,7 +3,7 @@
 	default-activation="lazy">
 
 	<reference id="entityBroker"
-		interface="de.inovex.javamagazin.jpa.InventoryDAO" />
+		interface="de.inovex.javamagazin.jpa.InventoryRepository" />
 
 	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
         <command>

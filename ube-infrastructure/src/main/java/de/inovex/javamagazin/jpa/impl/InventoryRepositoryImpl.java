@@ -14,7 +14,7 @@
 // KIND, either express or implied.  See the License for the
 // specific language governing permissions and limitations
 // under the License.package tutorial;
-package de.inovex.javamagazin.jpa.broker.impl;
+package de.inovex.javamagazin.jpa.impl;
 
 
 import java.util.List;
@@ -25,9 +25,9 @@ import javax.persistence.TypedQuery;
 
 import de.inovex.javamagazin.domain.InventoryCategory;
 import de.inovex.javamagazin.domain.InventoryItem;
-import de.inovex.javamagazin.jpa.InventoryDAO;
+import de.inovex.javamagazin.jpa.InventoryRepository;
 
-public class InventoryDAOImpl implements InventoryDAO {
+public class InventoryRepositoryImpl implements InventoryRepository {
 	
     EntityManager em;
 
