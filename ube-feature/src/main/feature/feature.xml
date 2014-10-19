@@ -32,6 +32,7 @@
         <bundle>mvn:${project.groupId}/ube-infrastructure/${project.version}</bundle>
         <bundle>mvn:${project.groupId}/ube-application/${project.version}</bundle>
         <bundle>mvn:${project.groupId}/ube-ui/${project.version}</bundle>
+        <bundle>mvn:${project.groupId}/ube-web/${project.version}</bundle>
     </feature>
 
 </features>

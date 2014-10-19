@@ -14,11 +14,12 @@
 
 
 	<modules>
-		<module>ube-feature</module>
 		<module>ube-domain</module>
 		<module>ube-infrastructure</module>
 		<module>ube-application</module>
 		<module>ube-ui</module>
+		<module>ube-web</module>
+		<module>ube-feature</module>
 	</modules>
 
 	<properties>
