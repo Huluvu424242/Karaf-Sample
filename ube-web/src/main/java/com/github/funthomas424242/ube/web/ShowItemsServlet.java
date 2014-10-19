@@ -16,8 +16,8 @@ import org.ops4j.pax.cdi.api.OsgiService;
 import de.inovex.javamagazin.domain.InventoryItem;
 import de.inovex.javamagazin.jpa.InventoryRepository;
 
-@WebServlet(urlPatterns = "/show")
-public class VisualizerServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/items")
+public class ShowItemsServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -26,12 +26,12 @@ public class VisualizerServlet extends HttpServlet {
 
 	@Inject
 	@OsgiService
-	InventoryRepository entityBroker;
+	InventoryRepository inventoryRepository;
 	
 	@Override
 	protected void doGet(final HttpServletRequest request,
 			final HttpServletResponse response) throws ServletException, IOException {
-		List<InventoryItem> allItems = entityBroker.getAllItems();
+		List<InventoryItem> allItems = inventoryRepository.getAllItems();
 		
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();

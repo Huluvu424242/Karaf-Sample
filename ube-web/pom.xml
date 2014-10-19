@@ -111,6 +111,11 @@
 						<Export-Package>!*</Export-Package>
 						<Web-ContextPath>ube</Web-ContextPath>
 						<Pax-ManagedBeans>WEB-INF/beans.xml</Pax-ManagedBeans>
+						<Require-Capability>
+							org.ops4j.pax.cdi.extension;
+							filter:="(&amp;(extension=pax-cdi-extension)(version&gt;=${version;==;0.7.0}))",
+							osgi.extender; filter:="(osgi.extender=pax.cdi)"
+						</Require-Capability>
 					</instructions>
 				</configuration>
 			</plugin>
