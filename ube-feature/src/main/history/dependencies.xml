@@ -10,5 +10,6 @@
         <bundle>mvn:com.github.funthomas424242.karaf/ube-domain/1.0.0-SNAPSHOT</bundle>
         <bundle>mvn:com.github.funthomas424242.karaf/ube-infrastructure/1.0.0-SNAPSHOT</bundle>
         <bundle>mvn:com.github.funthomas424242.karaf/ube-ui/1.0.0-SNAPSHOT</bundle>
+        <bundle>mvn:com.github.funthomas424242.karaf/ube-web/1.0.0-SNAPSHOT</bundle>
     </feature>
 </features>
