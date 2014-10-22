@@ -29,6 +29,12 @@
 			<artifactId>ube-application</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<!-- compile time dependencies -->
+		<dependency>
+			<groupId>org.apache.clerezza.ext</groupId>
+			<artifactId>org.json.simple</artifactId>
+			<version>0.3-incubating</version>
+		</dependency>
 		<!-- Provided dependencies -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
