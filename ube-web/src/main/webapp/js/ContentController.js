@@ -7,7 +7,7 @@ contentModule.controller("ContentController", function($scope, $http) {
 	
 	$scope.listCategories = function() {
 		
-		$http.post('http://localhost:8181/ube/kategorien.json').success(
+		$http.get('http://localhost:8181/ube/kategorien/auflisten').success(
 				function(data) {
 					$scope.liste = data;
 				});

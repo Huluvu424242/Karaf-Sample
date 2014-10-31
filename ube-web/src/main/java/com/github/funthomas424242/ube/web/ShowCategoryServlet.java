@@ -18,7 +18,7 @@ import org.ops4j.pax.cdi.api.OsgiService;
 import de.inovex.javamagazin.domain.InventoryCategory;
 import de.inovex.javamagazin.jpa.InventoryRepository;
 
-@WebServlet(urlPatterns = "/kategorien.json")
+@WebServlet(urlPatterns = "/kategorien/auflisten")
 public class ShowCategoryServlet extends HttpServlet {
 
 	/**
@@ -31,7 +31,7 @@ public class ShowCategoryServlet extends HttpServlet {
 	InventoryRepository inventoryRepository;
 
 	@Override
-	protected void doPost(final HttpServletRequest request,
+	protected void doGet(final HttpServletRequest request,
 			final HttpServletResponse response) throws ServletException,
 			IOException {
 
@@ -64,11 +64,18 @@ public class ShowCategoryServlet extends HttpServlet {
 
 	private ArrayList<JSONObject> getContent() {
 
-		final List<InventoryCategory> allItems = inventoryRepository
+		final List<InventoryCategory> geleseneKategorien = inventoryRepository
 				.getAllCategories();
 
-		final ArrayList<JSONObject> kategorien = new ArrayList<JSONObject>();
+		final ArrayList<JSONObject> kategorien = konvertiereKategorienInJSON(geleseneKategorien);
+		return kategorien;
+	}
 
+	@SuppressWarnings("unchecked")
+	private ArrayList<JSONObject> konvertiereKategorienInJSON(
+			final List<InventoryCategory> allItems) {
+		
+		final ArrayList<JSONObject> kategorien = new ArrayList<JSONObject>();
 		for (InventoryCategory item : allItems) {
 			final JSONObject obj = new JSONObject();
 			obj.put("id", item.getId());
