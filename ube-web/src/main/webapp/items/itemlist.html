@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ng="http://angularjs.org/" ng-app="itemVerwaltung">
+<head>
+<title>Item Liste</title>
+<script type="text/javascript" src="../js/code.angularjs.org/1.3.0-rc.5/angular.js"></script>
+<script type="text/javascript" src="../js/code.angularjs.org/1.3.0-rc.5/angular-resource.js"></script>
+<script type="text/javascript" src="../js/angular-hateoas.js"></script>
+<script type="text/javascript" src="../js/ContentController.js"></script>
+</head>	
+	
+<body ng-controller="ContentController" ng-init="listItems()">
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+		<tr ng-repeat="x in liste">
+			<td ng-bind="x.id"></td>
+			<td ng-bind="x.name"></td>
+			<td ng-bind="x.description"></td>
+		</tr>
+	</table>
+</body>
+</html>

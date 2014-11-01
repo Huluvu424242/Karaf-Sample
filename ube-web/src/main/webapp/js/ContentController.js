@@ -1,9 +1,14 @@
 'use strict';
 // definieren eines Moduls
-var contentModule = angular.module("contentModule", []);
+//var itemVerwaltung = angular.module("itemVerwaltung", ["ngResource", "hateoas"]);
+//itemVerwaltung.config(function (HateoasInterceptorProvider) {
+//HateoasInterceptorProvider.transformAllResponses();
+//});
+
+var itemVerwaltung = angular.module("itemVerwaltung", []);
 
 // hinzufügen eines Controllers zum Modul
-contentModule.controller("ContentController", function($scope, $http) {
+itemVerwaltung.controller("ContentController", function($scope, $http) {
 	
 	$scope.listCategories = function() {
 		
@@ -12,4 +17,13 @@ contentModule.controller("ContentController", function($scope, $http) {
 					$scope.liste = data;
 				});
 	}
+	
+	$scope.listItems = function() {
+		
+		$http.get('http://localhost:8181/ube/items/all').success(
+				function(data) {
+					$scope.liste = data;
+				});
+	}
+	
 });
