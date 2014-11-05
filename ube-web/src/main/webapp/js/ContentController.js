@@ -7,12 +7,14 @@
 
 var itemVerwaltung = angular.module("itemVerwaltung", []);
 
+//$locationProvider.html5Mode(true);
+
 // hinzufügen eines Controllers zum Modul
 itemVerwaltung.controller("ContentController", function($scope, $http) {
 	
 	$scope.listCategories = function() {
 		
-		$http.get('http://localhost:8181/ube/kategorien/auflisten').success(
+		$http.get('http://localhost:8181/ube/kategorien/all').success(
 				function(data) {
 					$scope.liste = data;
 				});

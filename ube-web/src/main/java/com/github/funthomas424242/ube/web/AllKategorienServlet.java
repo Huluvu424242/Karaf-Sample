@@ -1,13 +1,11 @@
 package com.github.funthomas424242.ube.web;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,11 +16,10 @@ import org.json.simple.JSONObject;
 import org.ops4j.pax.cdi.api.OsgiService;
 
 import de.inovex.javamagazin.domain.InventoryCategory;
-import de.inovex.javamagazin.domain.InventoryItem;
 import de.inovex.javamagazin.jpa.InventoryRepository;
 
-@WebServlet(urlPatterns = "/kategorien/auflisten") 
-public class ShowCategoryServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/kategorien/all")
+public class AllKategorienServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -38,30 +35,38 @@ public class ShowCategoryServlet extends HttpServlet {
 			final HttpServletResponse response) throws ServletException,
 			IOException {
 
-		List<InventoryItem> allItems = inventoryRepository.getAllItems();
-
 		response.setCharacterEncoding("utf8");
-		response.setContentType("text/html");
-		response.setHeader("location",
-				"http://localhost:8181/ube/kategorien/auflisten");
-		response.setHeader(
-				"link",
-				"<http://localhost:8181/ube/index.html>;rel=\"next\";title=\"Homepage\"");
-
+		response.setContentType("application/json");
 		final PrintWriter writer = response.getWriter();
-
-		final ServletContext context = getServletContext();
-
-		final InputStream inStream = context
-				.getResourceAsStream("/kategorien/list.html");
-		int c = inStream.read();
-		while (c != -1) {
-			writer.print((char) c);
-			c = inStream.read();
-		}
+		writer.print(getContent());
 		writer.flush();
 		writer.close();
 	}
-	
 
+	
+	private ArrayList<JSONObject> getContent() {
+
+		final List<InventoryCategory> geleseneKategorien = inventoryRepository
+				.getAllCategories();
+
+		final ArrayList<JSONObject> kategorien = konvertiereKategorienInJSON(geleseneKategorien);
+		return kategorien;
+	}
+
+	@SuppressWarnings("unchecked")
+	private ArrayList<JSONObject> konvertiereKategorienInJSON(
+			final List<InventoryCategory> allItems) {
+		
+		final ArrayList<JSONObject> kategorien = new ArrayList<JSONObject>();
+		for (InventoryCategory category : allItems) {
+			final JSONObject obj = new JSONObject();
+			obj.put("id", category.getId());
+			obj.put("name", category.getCategoryName());
+			obj.put("description", category.getCategoryDescription());
+			kategorien.add(obj);
+		}
+		return kategorien;
+	}
+
+	
 }

@@ -4,35 +4,22 @@
 	xmlns:ng="http://angularjs.org/" ng-app="itemVerwaltung">
 <head>
 <title>Willkommen</title>
-<script type="text/javascript" src="./js/code.angularjs.org/1.3.0-rc.5/angular.js"></script>
-<script type="text/javascript" src="./js/code.angularjs.org/1.3.0-rc.5/angular-resource.js"></script>
+<script type="text/javascript"
+	src="./js/code.angularjs.org/1.3.0-rc.5/angular.js"></script>
+<script type="text/javascript"
+	src="./js/code.angularjs.org/1.3.0-rc.5/angular-resource.js"></script>
 <script type="text/javascript" src="./js/angular-hateoas.js"></script>
 <script type="text/javascript" src="./js/ContentController.js"></script>
 </head>
 <body ng-controller="ContentController">
 	<div>
 		<h1>Testseite</h1>
-
 		<div>
-			<button ng-click="listCategories()">Liste aller Kategorien</button>
-			<a href="http://localhost:8181/ube/items/auflisten">Liste aller Items</a>
-			<table>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Description</th>
-				</tr>
-				<tr ng-repeat="x in liste">
-					<td>{{x.id}}</td>
-					<td>{{x.name}}</td>
-					<td>{{x.description}}</td>
-				</tr>
-			</table>
+			<a href="/ube/kategorien/auflisten">Liste aller Kategorien</a>
 		</div>
-		<ul ng-repeat="link in linklist">
-			<li rel="{{link.rel}}" href="{{link.href}}" verb="{{link.verb}}"
-				title="{{link.title}}" />
-		</ul>
+		<div>
+			<a href="/ube/items/auflisten">Liste aller Items</a>
+		</div>
 	</div>
 </body>
 </html>
