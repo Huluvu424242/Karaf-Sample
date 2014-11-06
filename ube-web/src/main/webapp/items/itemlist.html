@@ -11,6 +11,14 @@
 </head>	
 	
 <body ng-controller="ContentController" ng-init="listItems()">
+<script type="text/javascript">
+	//http://stackoverflow.com/questions/220231/accessing-the-web-pages-http-headers-in-javascript
+	var req = new XMLHttpRequest();
+	req.open('GET', document.location, false);
+	req.send(null);
+	var headers = req.getAllResponseHeaders().toLowerCase();
+	//alert(headers);
+</script>
 	<table>
 		<tr>
 			<th>ID</th>
