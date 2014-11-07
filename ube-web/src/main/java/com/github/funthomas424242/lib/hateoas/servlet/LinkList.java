@@ -1,6 +1,7 @@
 package com.github.funthomas424242.lib.hateoas.servlet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +27,11 @@ public class LinkList {
 		return linkDescription;
 	}
 
-	public void addLinkRequestURL(String relation, String verb, String title) {
-		this.addLink(relation, requestURL, verb, title);
+	public LinkDescription addLinkRequestURL(String relation, String verb, String title) {
+		final LinkDescription linkDescription = new LinkDescription(relation,
+				requestURL, verb, title);
+		linkList.add(linkDescription);
+		return linkDescription;
 	}
 
 	public void addLocationHeaderTo(HttpServletResponse response) {
@@ -38,6 +42,22 @@ public class LinkList {
 		response.setHeader("link", getLinkListValue());
 	}
 
+	public HashMap<String,String> generatePlaceholderMap() {
+		final HashMap<String,String> placeholderMap = new HashMap<String,String>();
+		for(LinkDescription link:linkList){
+			final String rel=link.getRelation();
+			String key="{{$"+rel+".href}}";
+			placeholderMap.put(key, link.getHref());
+			key="{{$"+rel+".rel}}";
+			placeholderMap.put(key, link.getRelation());
+			key="{{$"+rel+".title}}";
+			placeholderMap.put(key, link.getTitel());
+			key="{{$"+rel+".verb}}";
+			placeholderMap.put(key, link.getVerb());
+		}
+		return placeholderMap;
+	}
+	
 	private String getLinkListValue() {
 		final StringBuffer buf = new StringBuffer();
 		boolean isNextLink = false;
@@ -50,5 +70,6 @@ public class LinkList {
 		}
 		return buf.toString();
 	}
+
 
 }

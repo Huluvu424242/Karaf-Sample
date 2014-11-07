@@ -12,6 +12,10 @@ var itemVerwaltung = angular.module("itemVerwaltung", []);
 // hinzufügen eines Controllers zum Modul
 itemVerwaltung.controller("ContentController", function($scope, $http) {
 	
+	$scope.goBack = function(url){
+		location.href=url;
+	}
+	
 	$scope.listCategories = function() {
 		
 		$http.get('http://localhost:8181/ube/kategorien/all').success(
