@@ -8,18 +8,19 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 import org.ops4j.pax.cdi.api.OsgiService;
 
+import com.github.funthomas424242.lib.hateoas.servlet.ContentServlet;
+
 import de.inovex.javamagazin.domain.InventoryItem;
 import de.inovex.javamagazin.jpa.InventoryRepository;
 
 @WebServlet(urlPatterns = "/items/all")
-public class AllItemsServlet extends HttpServlet {
+public class AllItemsServlet extends ContentServlet {
 
 	/**
 	 * 

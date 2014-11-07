@@ -4,21 +4,27 @@
 	xmlns:ng="http://angularjs.org/" ng-app="itemVerwaltung">
 <head>
 <title>Item Liste</title>
-<script type="text/javascript" src="../js/code.angularjs.org/1.3.0-rc.5/angular.js"></script>
-<script type="text/javascript" src="../js/code.angularjs.org/1.3.0-rc.5/angular-resource.js"></script>
+<script type="text/javascript"
+	src="../js/code.angularjs.org/1.3.0-rc.5/angular.js"></script>
+<script type="text/javascript"
+	src="../js/code.angularjs.org/1.3.0-rc.5/angular-resource.js"></script>
 <script type="text/javascript" src="../js/angular-hateoas.js"></script>
 <script type="text/javascript" src="../js/ContentController.js"></script>
-</head>	
-	
+</head>
+
 <body ng-controller="ContentController" ng-init="listItems()">
-<script type="text/javascript">
-	//http://stackoverflow.com/questions/220231/accessing-the-web-pages-http-headers-in-javascript
-	var req = new XMLHttpRequest();
-	req.open('GET', document.location, false);
-	req.send(null);
-	var headers = req.getAllResponseHeaders().toLowerCase();
-	//alert(headers);
-</script>
+	<script type="text/javascript">
+		//http://stackoverflow.com/questions/220231/accessing-the-web-pages-http-headers-in-javascript
+		//var req = new XMLHttpRequest();
+		//req.open('GET', document.location, false);
+		//req.send(null);
+		//var headers = req.getAllResponseHeaders().toLowerCase();
+		//alert(headers);
+	</script>
+	<ul>
+		<li><a href="{{$back.href}}">{{$back.title}}</a></li>
+		<li><a href="{{$next.href}}">{{$next.title}}</a></li>
+	</ul>
 	<table>
 		<tr>
 			<th>ID</th>

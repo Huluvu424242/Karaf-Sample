@@ -3,35 +3,24 @@ package com.github.funthomas424242.ube.web;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
-import org.ops4j.pax.cdi.api.OsgiService;
-
-import de.inovex.javamagazin.domain.InventoryItem;
-import de.inovex.javamagazin.jpa.InventoryRepository;
+import com.github.funthomas424242.lib.hateoas.servlet.LinkDescription;
+import com.github.funthomas424242.lib.hateoas.servlet.LinkList;
+import com.github.funthomas424242.lib.hateoas.servlet.NavigationServlet;
 
 @WebServlet(urlPatterns = "/items/auflisten")
-public class ShowItemsServlet extends HttpServlet {
+public class ShowItemsServlet extends NavigationServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	@Inject
-	@OsgiService
-	InventoryRepository inventoryRepository;
 
 	
 	@Override
@@ -39,15 +28,20 @@ public class ShowItemsServlet extends HttpServlet {
 			final HttpServletResponse response) throws ServletException,
 			IOException {
 
-		List<InventoryItem> allItems = inventoryRepository.getAllItems();
+		
 
 		response.setCharacterEncoding("utf8");
 		response.setContentType("text/html");
-		response.setHeader("location",
-				"http://localhost:8181/ube/items/auflisten");
-		response.setHeader(
-				"link",
-				"<http://localhost:8181/ube/index.html>;rel=\"next\";title=\"Homepage\"");
+		
+		
+		final LinkList linkList=new LinkList(request);
+		linkList.addLinkRequestURL("self", "GET", "Neu laden" );
+		linkList.addLink("back","/index.html", "GET", "Zurueck" );
+		linkList.addLink("next","/kategorien/auflisten", "GET", "Kategorien auflisten" );
+	
+		linkList.addLocationHeaderTo(response);
+		linkList.addLinkHeaderTo(response);
+		
 
 		final PrintWriter writer = response.getWriter();
 

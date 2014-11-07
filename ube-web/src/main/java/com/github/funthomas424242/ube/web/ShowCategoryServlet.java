@@ -17,12 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 import org.ops4j.pax.cdi.api.OsgiService;
 
+import com.github.funthomas424242.lib.hateoas.servlet.NavigationServlet;
+
 import de.inovex.javamagazin.domain.InventoryCategory;
 import de.inovex.javamagazin.domain.InventoryItem;
 import de.inovex.javamagazin.jpa.InventoryRepository;
 
 @WebServlet(urlPatterns = "/kategorien/auflisten") 
-public class ShowCategoryServlet extends HttpServlet {
+public class ShowCategoryServlet extends NavigationServlet {
 
 	/**
 	 * 
