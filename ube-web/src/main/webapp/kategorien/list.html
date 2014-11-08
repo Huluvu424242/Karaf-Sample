@@ -4,14 +4,33 @@
 	xmlns:ng="http://angularjs.org/" ng-app="itemVerwaltung">
 <head>
 <title>Kategorien Liste</title>
-<script type="text/javascript" src="../js/code.angularjs.org/1.3.0-rc.5/angular.js"></script>
-<script type="text/javascript" src="../js/code.angularjs.org/1.3.0-rc.5/angular-resource.js"></script>
+<script type="text/javascript"
+	src="../js/code.angularjs.org/1.3.0-rc.5/angular.js"></script>
+<script type="text/javascript"
+	src="../js/code.angularjs.org/1.3.0-rc.5/angular-resource.js"></script>
 <script type="text/javascript" src="../js/angular-hateoas.js"></script>
-<script type="text/javascript" src="../js/ContentController.js"></script>
-</head>	
-	
-<body ng-controller="ContentController" ng-init="listCategories()">
-	<table>
+<script type="text/javascript" src="../js/ItemVerwaltung.js"></script>
+</head>
+
+<body>
+
+<h1>Liste der Kategorien</h1>
+
+	<div ng-controller="NavigationController">
+		<button ng-click="goTo('{{$back.href}}')">{{$back.title}}</button>
+		<button ng-click="goTo('{{$home.href}}')">{{$home.title}}</button>
+		<button ng-click="goTo('{{$new.href}}')">{{$new.title}}</button>
+		<button ng-click="goTo('{{$next.href}}')">{{$next.title}}</button>
+	</div>
+
+	<div>
+		<a href="{{$back.href}}">[{{$back.title}}]</a> <a
+			href="{{$home.href}}">[{{$home.title}}]</a> <a href="{{$new.href}}">[{{$new.title}}]</a>
+		<a href="{{$next.href}}">[{{$next.title}}]</a>
+	</div>
+
+
+	<table ng-controller="CategoryController" ng-init="listCategories()">
 		<tr>
 			<th>ID</th>
 			<th>Name</th>

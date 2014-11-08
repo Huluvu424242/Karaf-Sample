@@ -1,29 +1,19 @@
 package com.github.funthomas424242.ube.web;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.inject.Inject;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
-import org.ops4j.pax.cdi.api.OsgiService;
-
+import com.github.funthomas424242.lib.hateoas.servlet.HateoasBuilder;
+import com.github.funthomas424242.lib.hateoas.servlet.HttpMethod;
 import com.github.funthomas424242.lib.hateoas.servlet.NavigationServlet;
+import com.github.funthomas424242.lib.hateoas.servlet.PlaceholderMap;
 
-import de.inovex.javamagazin.domain.InventoryCategory;
-import de.inovex.javamagazin.domain.InventoryItem;
-import de.inovex.javamagazin.jpa.InventoryRepository;
-
-@WebServlet(urlPatterns = "/kategorien/auflisten") 
+@WebServlet(urlPatterns = "/kategorien/auflisten")
 public class ShowCategoryServlet extends NavigationServlet {
 
 	/**
@@ -31,39 +21,34 @@ public class ShowCategoryServlet extends NavigationServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Inject
-	@OsgiService
-	InventoryRepository inventoryRepository;
-
 	@Override
 	protected void doGet(final HttpServletRequest request,
 			final HttpServletResponse response) throws ServletException,
 			IOException {
 
-		List<InventoryItem> allItems = inventoryRepository.getAllItems();
+		final HateoasBuilder hateoasBuilder = new HateoasBuilder(request);
+		hateoasBuilder.addLinkSELF(HttpMethod.GET, "Neu laden");
+		hateoasBuilder.addLinkBACK(HttpMethod.GET, "Zur&uuml;ck");
+		hateoasBuilder.addLink("next", "/items/auflisten", HttpMethod.GET,
+				"Items auflisten");
+		hateoasBuilder.addLink("home", "/index.html", HttpMethod.GET,
+				"Startseite");
+		hateoasBuilder.addLink("new", "/kategorien/new", HttpMethod.GET,
+				"Neue Kategorie erfassen");
+		final PlaceholderMap placeholderMap = hateoasBuilder
+				.createPlaceholderMap();
+		final StringBuffer pageContent = hateoasBuilder.buildPageContent(
+				getServletContext(), placeholderMap, "/kategorien/list.html");
 
 		response.setCharacterEncoding("utf8");
 		response.setContentType("text/html");
-		response.setHeader("location",
-				"http://localhost:8181/ube/kategorien/auflisten");
-		response.setHeader(
-				"link",
-				"<http://localhost:8181/ube/index.html>;rel=\"next\";title=\"Homepage\"");
+		hateoasBuilder.addLocationHeaderTo(response);
+		hateoasBuilder.addLinkHeaderTo(response);
 
 		final PrintWriter writer = response.getWriter();
-
-		final ServletContext context = getServletContext();
-
-		final InputStream inStream = context
-				.getResourceAsStream("/kategorien/list.html");
-		int c = inStream.read();
-		while (c != -1) {
-			writer.print((char) c);
-			c = inStream.read();
-		}
+		writer.print(pageContent.toString());
 		writer.flush();
 		writer.close();
 	}
-	
 
 }
