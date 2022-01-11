@@ -71,7 +71,7 @@
 		<dependency.pax-swissbox.version>1.6.0</dependency.pax-swissbox.version>
 		<dependency.ops4j-base.version>1.4.0</dependency.ops4j-base.version>
 		<dependency.geronimo-inject.version>1.0</dependency.geronimo-inject.version>
-		<dependency.karaf.version>3.0.0-SNAPSHOT</dependency.karaf.version>
+		<dependency.karaf.version>4.2.3</dependency.karaf.version>
 		<dependency.karaf-tooling.version>3.0.0-SNAPSHOT</dependency.karaf-tooling.version>
 		<dependency.pax-loggin.version>1.6.9</dependency.pax-loggin.version>
 
