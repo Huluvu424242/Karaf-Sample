@@ -67,7 +67,7 @@
 		<dependency.javax-inject.version>1_2</dependency.javax-inject.version>
 		<dependency.paxurl.version>1.4.2</dependency.paxurl.version>
 		<dependency.pax-runner.version>1.7.4</dependency.pax-runner.version>
-		<dependency.logback.version>0.9.29</dependency.logback.version>
+		<dependency.logback.version>1.2.0</dependency.logback.version>
 		<dependency.pax-swissbox.version>1.6.0</dependency.pax-swissbox.version>
 		<dependency.ops4j-base.version>1.4.0</dependency.ops4j-base.version>
 		<dependency.geronimo-inject.version>1.0</dependency.geronimo-inject.version>
