@@ -54,7 +54,7 @@
 		<dependency.openjpa-plugin.version>1.2</dependency.openjpa-plugin.version>
 
 		<!-- test dependencies -->
-		<dependency.junit.version>4.11</dependency.junit.version>
+		<dependency.junit.version>4.13.1</dependency.junit.version>
 
 		<dependency.plexusUtilsPluginsVersion>3.0.7</dependency.plexusUtilsPluginsVersion>
 		<dependency.h2.version>2.0.206</dependency.h2.version>
