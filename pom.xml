@@ -24,7 +24,7 @@
 
 	<properties>
 		<dependency.slf4j.version>1.6.1</dependency.slf4j.version>
-		<dependency.log4j.version>1.2.14</dependency.log4j.version>
+		<dependency.log4j.version>1.2.17</dependency.log4j.version>
 		<dependency.commons-io.version>2.3</dependency.commons-io.version>
 		<dependency.commons-beanutils.version>1.9.4</dependency.commons-beanutils.version>
 		<dependency.commons-collections.version>3.2.2</dependency.commons-collections.version>
